@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { format } from 'date-fns';
 import { ResidualCalc, Result,  Form, Fieldset, Label, Input, Button, Checkbox } from './CalculatorElements';
-import { getValue } from '@testing-library/user-event/dist/utils';
+
 
 const ResV_Calc = () => {
     
     const [ fbtBase, setFbtBase ] = useState( '' );                                             // Divide deals with setting this state
-    const [ clear, setClear ] = useState( false );                                              // Clear deals with setting this state
     const [ termYears, setTermYears ] = useState( 0 );                                          // DateDif deals with setting this state
     const [ termMonths, setTermMonths ] = useState( 0 );                                        // DateDif deals with setting this state
     const [ totalFbtYears, setTotalFbtYears ] = useState( 0 );                                  // fbtYearCalc deals with setting this state
@@ -14,8 +12,19 @@ const ResV_Calc = () => {
     const [ totalTermMonths, setTotalTermMonths ] = useState( 0 );                              // residualCalc deals with setting this state
     const [ newResidual, setNewResidual ] = useState( 0 );                                      // resValue deals with setting this state
     const [ residualRate, setResidualRate ] = useState( 0 );                                    // resValue deals with setting this state
-    const [ checked, setChecked ] = useState( true );
+    //const [ checked, setChecked ] = useState( true );
 
+
+    const clear = () => {
+        setFbtBase( '' );
+        setTermYears( 0 );
+        setTermMonths( 0 );
+        setTotalFbtYears( 0 );
+        setTotalTermYears( 0 );
+        setTotalTermMonths( 0 );
+        setNewResidual( 0 );
+        setResidualRate( 0 );
+    }
 
     // Hook for setting FBT base value
     useEffect( () => {
@@ -203,7 +212,7 @@ const ResV_Calc = () => {
 
 
     const handleClickClear = async ( e ) => {
-
+        clear();
     };
 
 
