@@ -30,7 +30,7 @@ const ResV_Calc = () => {
         } else {
             alert( 'Error in FBT Base Value Calculation')
         }
-    });
+    }, [totalFbtYears]);
 
     // Hook for orginal term length
     const orginalTerm = () => {
